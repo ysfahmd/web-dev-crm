@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import HomeLandingPage from './components/HomeLandingPage/HomeLandingPage';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
-import Blog from './components/Blog/Blog';
-import BlogPost from './components/BlogPost/BlogPost';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -13,7 +11,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <HomeLandingPage />,
     errorElement: <ErrorPage />
   },
   {
@@ -25,12 +23,12 @@ const router = createBrowserRouter([
     element: <Contact />
   },
   {
-    path: '/blog',
-    element: <Blog />,
+    path: '/portal',
+    element: <h1>Welcome home!</h1>,
     children: [
       {
-        path: ':blogPost',
-        element: <BlogPost />
+        path: '/portal/:user',
+        element: <h1>Welcome, user.</h1>
       }
     ]
   }
